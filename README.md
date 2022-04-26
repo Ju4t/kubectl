@@ -1,6 +1,6 @@
 # docker-kubectl
-kubectl docker images
-## build
+kubectl images
+## 构建镜像
 ### docker
 ```bash
 docker build -t ju4t/kubectl:v1.23.5 .
