@@ -12,17 +12,7 @@ buildctl build --frontend dockerfile.v0 --local context=. --local dockerfile=. -
 ```
 
 ## 用法
-### docker
-```bash
-docker run -na
-```
-
-### k8s
-```yaml
-#
-```
-
-### jenkins
+### jenkins && k8s
 ```bash
 podTemplate(
     cloud: 'kubernetes',
