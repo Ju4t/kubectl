@@ -33,7 +33,7 @@ podTemplate(
         containerTemplate(name: 'kubectl', image: 'registry.cn-beijing.aliyuncs.com/ju4t/kubectl', command: 'cat', ttyEnabled: true)
     ],
     volumes: [
-        configMapVolume(configMapName: 'kube-config', mountPath: '/root/.kube/'),
+        // configMapVolume(configMapName: 'kube-config', mountPath: '/root/.kube/'),
     ]
 ) { 
     node(POD_LABEL) {
