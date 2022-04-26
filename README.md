@@ -39,17 +39,11 @@ podTemplate(
     node(POD_LABEL) {
         stage('运行 Kubectl') {
             // 把kube config 文件上传到 凭据 中 
-            // withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
-            //     container('kubectl') {
-            //         sh "mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config"
-            //         echo "5.查看应用"
-            //         sh "kubectl get pod"
-            //     }
-            // }
-            container('kubectl') {
-                sh "mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config"
-                echo "5.查看应用"
-                sh "kubectl get pod"
+            withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                container('kubectl') {
+                    sh "mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config"
+                    sh "kubectl get pod"
+                }
             }
         }
     }
