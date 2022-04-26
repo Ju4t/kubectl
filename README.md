@@ -2,7 +2,7 @@
 kubectl docker images
 ## docker build
 ```bash
-docker build -t kubectl .
+docker build -t ju4t/kubectl:v1.23.5 .
 ```
 
 ## buildctl build
