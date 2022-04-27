@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-LABEL 敬晓兵 <ju4t@qq.com>
+LABEL maintainer 敬晓兵 <Ju4t@qq.com>
 
 ARG KUBE_VERSION="v1.23.5"
 
