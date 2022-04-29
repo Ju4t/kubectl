@@ -20,7 +20,7 @@ podTemplate(
     // idleMinutes: 10, // 执行后，释放时间(分)
     // imagePullSecrets: ''
     containers: [
-        containerTemplate(name: 'kubectl', image: 'registry.cn-beijing.aliyuncs.com/ju4t/kubectl', command: 'cat', ttyEnabled: true)
+        containerTemplate(name: 'kubectl', image: 'ju4t/kubectl', command: 'cat', ttyEnabled: true)
     ],
     volumes: [
         // configMapVolume(configMapName: 'kube-config', mountPath: '/root/.kube/'),
@@ -31,8 +31,8 @@ podTemplate(
             // 把kube config 文件上传到 凭据 中 
             withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                 container('kubectl') {
-                    sh "mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config"
-                    sh "kubectl get pod"
+                    // sh "mkdir -p ~/.kube && cp ${KUBECONFIG} ~/.kube/config"
+                    sh "kubectl get pod --kubeconfig $KUBECONFIG"
                 }
             }
         }
